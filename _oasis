@@ -1,0 +1,48 @@
+OASISFormat:        0.4
+Name:               omitie
+Version:            0.1
+Synopsis:           Minimal OCaml bindings to MITIE
+Authors:            Travis Brady
+License:            Apache-2.0
+LicenseFile:        LICENSE.txt
+Homepage:           https://github.com/travisbrady/omitie
+Plugins:            META (0.4), DevFiles (0.4), StdFiles (0.4)
+XStdFilesAUTHORS:   false
+XStdFilesREADME:    false
+
+Library omitie
+  Path:                 lib
+  FindlibName:          omitie
+  BuildTools:           ocamlbuild
+  BuildDepends:         ctypes, ctypes.foreign, core, threads
+  CompiledObject:       best
+  Modules:              Mitie, Omitie
+  DllLib:               -lmitie
+  DllLib:               -lmitie
+  if system(linux)
+    CCLib:              -Xlinker --no-as-needed -lmitie
+  else
+    CCLib:              -lmitie
+
+Executable test_omitie
+  Path:                 lib_test
+  BuildTools:           ocamlbuild
+  BuildDepends:         omitie, core, oUnit, threads
+  Build$:               flag(tests)
+  CompiledObject:       best
+  MainIs:               test_omitie.ml
+  Install:              false
+
+Test test_omitie
+  Run$:                 flag(tests)
+  Command:              $test_omitie
+  WorkingDirectory:     lib_test
+
+Executable simple
+  Path:                 examples
+  BuildTools:           ocamlbuild
+  BuildDepends:         omitie, threads
+  CompiledObject:       best
+  MainIs:               simple.ml
+  Install:              false
+
