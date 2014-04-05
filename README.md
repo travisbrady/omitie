@@ -7,6 +7,8 @@ Synopsis
 ========
 Experimental bindings to the newly-released [MITIE library](https://github.com/mit-nlp/MITIE).  
 Also see [this blog post](http://blog.dlib.net/2014/04/mitie-completely-free-and-state-of-art.html)
+MITIE currently only provides functions for named entity recognition but work is apparently under way
+on support for all manner of information extraction.
 
 Install
 =======
@@ -20,7 +22,7 @@ mirrors the ner_example executable in the MITIE distribution.
 Provided you've downloaded ner_model.dat this will extract named entities from a text file and
 print the results to stdout.
 
-Example of use:
+Example of use of simple.native:
 ```bash
 $ ./simple.native ner_model.dat sample_text.txt
 The tagger supports 4 tags:
