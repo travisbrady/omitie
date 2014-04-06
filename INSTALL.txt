@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: 37b4d4da48691c0d6851c32ddd67969c) *)
+(* DO NOT EDIT (digest: 70ef989f929bad43b9e3f85c574abb8b) *)
 This is the INSTALL file for the omitie distribution.
 
 This package uses OASIS to generate its build system. See section OASIS for
@@ -12,7 +12,6 @@ In order to compile this package, you will need:
 * ocaml
 * findlib
 * ctypes for library omitie
-* core for library omitie, executable test_omitie
 * oUnit for executable test_omitie
 
 Installing

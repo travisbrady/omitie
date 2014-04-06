@@ -6,6 +6,7 @@ let uloi = Unsigned.ULong.of_int
 let ulti = Unsigned.ULong.to_int
 
 let free = Mitie.mitie_free
+let close_model = Mitie.mitie_free
 
 let load_named_entity_extractor = Mitie.mitie_load_named_entity_extractor
 
@@ -35,7 +36,8 @@ let ner_get_detection_tag dets idx =
 let ner_get_detection_tagstr dets idx =
     Mitie.mitie_ner_get_detection_tagstr dets (uloi idx)
 
-let extract ner tokens =
+let extract ner str =
+    let tokens = tokenize str in
     let dets = extract_entities ner tokens in
     let num_dets = ner_get_num_detections dets in
 
@@ -46,9 +48,6 @@ let extract ner tokens =
 
         let nechunks = ref [] in
         for j = pos to (pos + len - 1) do
-
-            let spot = tokens +@ j in
-            let tok = !@ spot in
             nechunks := (!@(tokens +@ j)) :: !nechunks
         done;
 
@@ -57,5 +56,7 @@ let extract ner tokens =
         nes := (tag, ne) :: !nes;
     done;
 
+    free (Ctypes.to_voidp tokens);
+    free dets;
     List.rev !nes
 

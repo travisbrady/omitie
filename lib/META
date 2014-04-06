@@ -1,8 +1,8 @@
 # OASIS_START
-# DO NOT EDIT (digest: 34e0a3929e19d7eda9d52a7cba516e27)
+# DO NOT EDIT (digest: 975f66b7044e5ee2d5f79835e27e08f3)
 version = "0.1"
 description = "Minimal OCaml bindings to MITIE"
-requires = "ctypes ctypes.foreign core threads"
+requires = "ctypes ctypes.foreign threads"
 archive(byte) = "omitie.cma"
 archive(byte, plugin) = "omitie.cma"
 archive(native) = "omitie.cmxa"

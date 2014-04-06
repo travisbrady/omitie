@@ -4,7 +4,8 @@ open Foreign
 type mitie_named_entity_extractor
 type mitie_named_entity_detections
 
-let mitie_free = foreign "mitie_free" (ptr void @-> returning (ptr void))
+let mitie_free = foreign "mitie_free" (ptr void @-> returning void)
+
 let mitie_load_entire_file = foreign "mitie_load_entire_file" (string @-> returning string)
 let mitie_tokenize = foreign "mitie_tokenize" (string @-> returning (ptr string))
 let mitie_load_named_entity_extractor = foreign "mitie_load_named_entity_extractor" (string @-> returning (ptr void))

@@ -14,7 +14,7 @@ Library omitie
   Path:                 lib
   FindlibName:          omitie
   BuildTools:           ocamlbuild
-  BuildDepends:         ctypes, ctypes.foreign, core, threads
+  BuildDepends:         ctypes, ctypes.foreign, threads
   CompiledObject:       best
   Modules:              Mitie, Omitie
   DllLib:               -lmitie
@@ -27,7 +27,7 @@ Library omitie
 Executable test_omitie
   Path:                 lib_test
   BuildTools:           ocamlbuild
-  BuildDepends:         omitie, core, oUnit, threads
+  BuildDepends:         omitie, oUnit, threads
   Build$:               flag(tests)
   CompiledObject:       best
   MainIs:               test_omitie.ml
