@@ -1,3 +1,6 @@
+(* Trivial example intended to mimic the one
+ * included with the MITIE distribution
+ *)
 open Printf
 
 (* Stolen from Core *)
@@ -18,6 +21,7 @@ let input_all t =
 ;;
 
 let () =
+    (* Load model file *)
     let ner = Omitie.load_named_entity_extractor (Sys.argv.(1)) in
 
     let num_tags = Omitie.get_num_possible_ner_tags ner in
@@ -29,6 +33,8 @@ let () =
     let fn = Sys.argv.(2) in
     let text_data = input_all (open_in fn) in
 
+    (* Given a model and a string, returns (string, string) list containing
+     * named entities and their tags *)
     let nes = Omitie.extract ner text_data in
     List.iter (fun (tag, ne) -> printf "   Tag: %s %s\n" tag ne) nes;
 
