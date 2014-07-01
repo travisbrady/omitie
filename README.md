@@ -47,3 +47,14 @@ The tagger supports 4 tags:
    Tag: PERSON Jim Bell
    Tag: LOCATION Sochi
 ```
+
+Fire up the included example http micro-service (you must compile with --enable-webserver):
+```bash
+./server.native -p 9000 -d
+```
+
+then
+```bash
+$ curl "http://localhost:9000/extract?text=have+you+been+to+columbia+university+in+new+york"
+{"results":[{"tag":"ORGANIZATION","entity":"columbia university"},{"tag":"LOCATION","entity":"new york"}]}
+```
