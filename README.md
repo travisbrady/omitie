@@ -55,6 +55,17 @@ Fire up the included example http micro-service (you must compile with --enable-
 
 then
 ```bash
-$ curl "http://localhost:9000/extract?text=have+you+been+to+columbia+university+in+new+york"
-{"results":[{"tag":"ORGANIZATION","entity":"columbia university"},{"tag":"LOCATION","entity":"new york"}]}
+$ curl "http://localhost:9000/extract?text=have+you+been+to+columbia+university+in+new+york"  | jq '.'
+{
+  "results": [
+    {
+      "entity": "columbia university",
+      "tag": "ORGANIZATION"
+    },
+    {
+      "entity": "new york",
+      "tag": "LOCATION"
+    }
+  ]
+}
 ```
