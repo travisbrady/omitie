@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 217044449d92f25f2666d1913d2278fd)
+# DO NOT EDIT (digest: 14efce96e866a4e0543e9d5334d3e3da)
 # Ignore VCS directories, you can use the same kind of rule outside
 # OASIS_START/STOP if you want to exclude directories that contains
 # useless stuff for the build process
@@ -36,8 +36,18 @@
 <examples/simple.{native,byte}>: pkg_ctypes.foreign
 <examples/simple.{native,byte}>: pkg_threads
 <examples/simple.{native,byte}>: use_omitie
+# Executable server
+<examples/server.{native,byte}>: pkg_cow.syntax
+<examples/server.{native,byte}>: pkg_ctypes
+<examples/server.{native,byte}>: pkg_ctypes.foreign
+<examples/server.{native,byte}>: pkg_opium
+<examples/server.{native,byte}>: pkg_threads
+<examples/server.{native,byte}>: use_omitie
+<examples/*.ml{,i}>: pkg_cow.syntax
 <examples/*.ml{,i}>: pkg_ctypes
 <examples/*.ml{,i}>: pkg_ctypes.foreign
+<examples/*.ml{,i}>: pkg_opium
 <examples/*.ml{,i}>: pkg_threads
 <examples/*.ml{,i}>: use_omitie
+<examples/server.{native,byte}>: custom
 # OASIS_STOP

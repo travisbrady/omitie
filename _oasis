@@ -46,3 +46,25 @@ Executable simple
   MainIs:               simple.ml
   Install:              false
 
+Executable simple
+  Path:                 examples
+  BuildTools:           ocamlbuild
+  BuildDepends:         omitie, threads
+  CompiledObject:       best
+  MainIs:               simple.ml
+  Install:              false
+
+Flag webserver
+  Description:          Compile opium-based web server
+  Default:              false
+
+Executable              server
+  Build$:               flag(webserver)
+  Path:                 examples
+  BuildTools:           ocamlbuild
+  MainIs:               server.ml
+  Custom:               true
+  CompiledObject:       best
+  Install:              false
+  BuildDepends:         omitie, opium, cow.syntax, threads
+
